@@ -15,6 +15,8 @@
    - [R — Reference / Restrictions](#r--reference--restrictions)
 5. [RTCFR Combined Example](#rtcfr-combined-example)
 6. [Best Practices Summary](#best-practices-summary)
+7. [Assignment - Medical Report Summarization](#assignment---medical-report-summarization)
+8. [Few more use cases - For reference](#few-more-use-cases---for-reference)
 
 ---
 
@@ -636,221 +638,8 @@ This single, well-engineered prompt will produce a complete, professional, on-br
 
 ---
 
-*Great prompts are not written — they are engineered.*
-*Master RTCFR and you master the art of communicating with AI.*
 
-
-# RTCFR Prompt Engineering — Real World Use Cases
-### 3 Detailed, Practical Examples Across Industries
-
----
-
-## Table of Contents
-
-1. [Use Case 1 — Customer Support Automation (E-Commerce)](#use-case-1--customer-support-automation-e-commerce)
-2. [Use Case 2 — Medical Report Summarization (Healthcare)](#use-case-2--medical-report-summarization-healthcare)
-3. [Use Case 3 — Code Review Assistant (Software Development)](#use-case-3--code-review-assistant-software-development)
-
----
-
-## Quick RTCFR Recap
-
-Before diving in, here is a quick reminder of the five elements:
-
-```
-R — Role         → Who the AI should be
-T — Task         → What the AI should do
-C — Context      → Background info the AI needs
-F — Format       → How the output should look
-R — Reference /  → Source material to use + rules to follow
-    Restrictions
-```
-
----
-
----
-
-# Use Case 1 — Customer Support Automation (E-Commerce)
-
-## Scenario
-
-**Company:** ShopNest — a mid-sized Indian e-commerce platform selling electronics and home appliances.
-
-**Problem:** The customer support team receives 500+ emails daily. Common complaints include delayed deliveries, wrong items received, and refund status queries. Agents spend hours drafting repetitive replies.
-
-**Goal:** Use an AI model with a carefully engineered RTCFR prompt to automatically draft professional, empathetic, and policy-compliant email replies — reducing agent effort by 70%.
-
----
-
-## RTCFR Breakdown
-
-### R — Role
-
-```
-You are a senior customer support specialist at ShopNest, a trusted Indian
-e-commerce company. You are known for being empathetic, solution-oriented,
-and always maintaining a warm, professional tone with customers.
-```
-
-**Why this Role?**
-Assigning a "senior specialist" role activates a tone that is experienced, calm, and reassuring — not robotic or defensive. The brand name grounds the AI in a specific identity. This prevents generic, cold corporate language and encourages human-like empathy.
-
----
-
-### T — Task
-
-```
-Your task is to read the customer's complaint email below and draft a
-complete, professional reply that:
-1. Acknowledges the customer's frustration
-2. Provides the current status or explanation
-3. States the resolution or next steps clearly
-4. Ends with a warm, reassuring closing
-```
-
-**Why this Task?**
-Breaking the task into 4 numbered sub-tasks ensures the AI doesn't skip any critical element. A vague task like "reply to the email" would miss the empathy step or the resolution step. The numbered breakdown acts like a checklist the AI must fulfill.
-
----
-
-### C — Context
-
-```
-Context:
-- ShopNest's standard refund processing time is 5-7 business days.
-- If a wrong item is delivered, a reverse pickup is arranged within 48 hours
-  and a replacement is shipped within 3 business days after pickup.
-- The customer's order ID is #SNT-209847.
-- Our internal system shows the refund was initiated on June 10th and is
-  currently in the bank processing stage.
-- The customer has been shopping with ShopNest for 3 years (loyal customer).
-```
-
-**Why this Context?**
-Without this context, the AI would write a hollow reply: "We are looking into your issue." With it, the AI can write a specific, factually grounded response mentioning the exact refund date, the 5-7 day timeline, and even acknowledge the customer's loyalty — making the response feel personal and trustworthy.
-
----
-
-### F — Format
-
-```
-Format:
-- Start with "Dear [Customer Name],"
-- Use 3-4 short paragraphs (no bullet points in the email body)
-- Maintain a warm, professional tone — not overly formal or casual
-- End with: "Warm regards, ShopNest Customer Support Team"
-- Total length: 150-200 words
-```
-
-**Why this Format?**
-Customer support emails should feel human, not like a system-generated wall of text. Specifying short paragraphs, a warm sign-off, and a word limit ensures the output is clean, readable, and ready to send without heavy editing. Without format instructions, the AI might produce a bullet-point reply that feels impersonal.
-
----
-
-### R — Reference / Restrictions
-
-```
-Reference: Use only the context provided above. Do not invent order details,
-dates, or policies not mentioned here.
-
-Restrictions:
-- Do NOT make promises beyond the stated policy (e.g., do not promise
-  same-day resolution unless stated)
-- Do NOT use "We apologize for the inconvenience" as an opener — it sounds
-  hollow; instead, acknowledge the specific issue directly
-- Do NOT mention competitor brands
-- Do NOT use legal or technical jargon
-```
-
-**Why these Restrictions?**
-The classic opener "We apologize for the inconvenience" has been so overused that customers find it dismissive. By banning it explicitly, the AI is forced to write something more genuine. Restricting invented promises protects the company legally. Grounding replies in provided facts prevents hallucinations.
-
----
-
-## The Full Engineered Prompt
-
-```
-You are a senior customer support specialist at ShopNest, a trusted Indian
-e-commerce company. You are known for being empathetic, solution-oriented,
-and always maintaining a warm, professional tone with customers.
-
-Your task is to read the customer's complaint email below and draft a
-complete, professional reply that:
-1. Acknowledges the customer's frustration
-2. Provides the current status or explanation
-3. States the resolution or next steps clearly
-4. Ends with a warm, reassuring closing
-
-Context:
-- ShopNest's standard refund processing time is 5-7 business days.
-- If a wrong item is delivered, a reverse pickup is arranged within 48 hours
-  and a replacement is shipped within 3 business days after pickup.
-- The customer's order ID is #SNT-209847.
-- Internal system: refund initiated on June 10th, currently in bank processing stage.
-- The customer has been shopping with ShopNest for 3 years (loyal customer).
-
-Format:
-- Start with "Dear [Customer Name],"
-- Use 3-4 short paragraphs (no bullet points in the email body)
-- Warm, professional tone
-- End with: "Warm regards, ShopNest Customer Support Team"
-- Total length: 150-200 words
-
-Reference: Use only the context provided above.
-
-Restrictions:
-- Do NOT invent order details, dates, or policies not mentioned.
-- Do NOT use "We apologize for the inconvenience" as an opener.
-- Do NOT make promises beyond stated policy.
-- Do NOT use legal or technical jargon.
-
---- Customer Email ---
-Subject: Where is my refund?? It's been 10 days!
-
-"I ordered a mixer grinder, you sent me the wrong model. I returned it
-10 days ago and still haven't received my refund. This is completely
-unacceptable. I want my money back immediately."
-```
-
----
-
-## AI Output
-
-> Dear Priya,
->
-> Thank you for reaching out, and I completely understand how frustrating it must feel
-> to wait this long after returning a wrong item — especially when you've trusted us
-> with your purchases for so long.
->
-> I've checked your order #SNT-209847, and I can confirm that your refund was
-> successfully initiated on June 10th. It is currently in the final bank processing
-> stage, which typically takes 5-7 business days from initiation. You should see the
-> amount credited to your account by June 17th at the latest.
->
-> If the refund does not reflect by then, please reply to this email and we will
-> escalate it directly with our payments team on priority.
->
-> We truly value your continued trust in ShopNest and are committed to making
-> this right for you.
->
-> Warm regards,
-> ShopNest Customer Support Team
-
----
-
-## Impact of RTCFR
-
-| Without RTCFR | With RTCFR |
-|---|---|
-| Generic "we're looking into it" reply | Specific refund date and status mentioned |
-| No empathy, robotic tone | Warm, loyal-customer acknowledgment |
-| May invent wrong timelines | Strictly follows the 5-7 day policy |
-| Manual drafting takes hours | Ready in seconds, agent just reviews |
-
----
----
-
-# Use Case 2 — Medical Report Summarization (Healthcare)
+# Assignment - Medical Report Summarization
 
 ## Scenario
 
@@ -1063,9 +852,219 @@ Chest X-Ray: Mild cardiomegaly. Lung fields clear. No effusion.
 | Generic medical summary | Tailored to a cardiologist's exact priorities |
 
 ---
+
+# Few more use cases - For reference
+### 2 Detailed, Practical Examples Across Industries
+
 ---
 
-# Use Case 3 — Code Review Assistant (Software Development)
+## Table of Contents
+
+1. [Use Case 1 — Customer Support Automation (E-Commerce)](#use-case-1--customer-support-automation-e-commerce)
+2. [Use Case 2 — Code Review Assistant (Software Development)](#use-case-2--code-review-assistant-software-development)
+
+---
+
+## Quick RTCFR Recap
+
+Before diving in, here is a quick reminder of the five elements:
+
+```
+R — Role         → Who the AI should be
+T — Task         → What the AI should do
+C — Context      → Background info the AI needs
+F — Format       → How the output should look
+R — Reference /  → Source material to use + rules to follow
+    Restrictions
+```
+
+---
+
+---
+
+# Use Case 1 — Customer Support Automation (E-Commerce)
+
+## Scenario
+
+**Company:** ShopNest — a mid-sized Indian e-commerce platform selling electronics and home appliances.
+
+**Problem:** The customer support team receives 500+ emails daily. Common complaints include delayed deliveries, wrong items received, and refund status queries. Agents spend hours drafting repetitive replies.
+
+**Goal:** Use an AI model with a carefully engineered RTCFR prompt to automatically draft professional, empathetic, and policy-compliant email replies — reducing agent effort by 70%.
+
+---
+
+## RTCFR Breakdown
+
+### R — Role
+
+```
+You are a senior customer support specialist at ShopNest, a trusted Indian
+e-commerce company. You are known for being empathetic, solution-oriented,
+and always maintaining a warm, professional tone with customers.
+```
+
+**Why this Role?**
+Assigning a "senior specialist" role activates a tone that is experienced, calm, and reassuring — not robotic or defensive. The brand name grounds the AI in a specific identity. This prevents generic, cold corporate language and encourages human-like empathy.
+
+---
+
+### T — Task
+
+```
+Your task is to read the customer's complaint email below and draft a
+complete, professional reply that:
+1. Acknowledges the customer's frustration
+2. Provides the current status or explanation
+3. States the resolution or next steps clearly
+4. Ends with a warm, reassuring closing
+```
+
+**Why this Task?**
+Breaking the task into 4 numbered sub-tasks ensures the AI doesn't skip any critical element. A vague task like "reply to the email" would miss the empathy step or the resolution step. The numbered breakdown acts like a checklist the AI must fulfill.
+
+---
+
+### C — Context
+
+```
+Context:
+- ShopNest's standard refund processing time is 5-7 business days.
+- If a wrong item is delivered, a reverse pickup is arranged within 48 hours
+  and a replacement is shipped within 3 business days after pickup.
+- The customer's order ID is #SNT-209847.
+- Our internal system shows the refund was initiated on June 10th and is
+  currently in the bank processing stage.
+- The customer has been shopping with ShopNest for 3 years (loyal customer).
+```
+
+**Why this Context?**
+Without this context, the AI would write a hollow reply: "We are looking into your issue." With it, the AI can write a specific, factually grounded response mentioning the exact refund date, the 5-7 day timeline, and even acknowledge the customer's loyalty — making the response feel personal and trustworthy.
+
+---
+
+### F — Format
+
+```
+Format:
+- Start with "Dear [Customer Name],"
+- Use 3-4 short paragraphs (no bullet points in the email body)
+- Maintain a warm, professional tone — not overly formal or casual
+- End with: "Warm regards, ShopNest Customer Support Team"
+- Total length: 150-200 words
+```
+
+**Why this Format?**
+Customer support emails should feel human, not like a system-generated wall of text. Specifying short paragraphs, a warm sign-off, and a word limit ensures the output is clean, readable, and ready to send without heavy editing. Without format instructions, the AI might produce a bullet-point reply that feels impersonal.
+
+---
+
+### R — Reference / Restrictions
+
+```
+Reference: Use only the context provided above. Do not invent order details,
+dates, or policies not mentioned here.
+
+Restrictions:
+- Do NOT make promises beyond the stated policy (e.g., do not promise
+  same-day resolution unless stated)
+- Do NOT use "We apologize for the inconvenience" as an opener — it sounds
+  hollow; instead, acknowledge the specific issue directly
+- Do NOT mention competitor brands
+- Do NOT use legal or technical jargon
+```
+
+**Why these Restrictions?**
+The classic opener "We apologize for the inconvenience" has been so overused that customers find it dismissive. By banning it explicitly, the AI is forced to write something more genuine. Restricting invented promises protects the company legally. Grounding replies in provided facts prevents hallucinations.
+
+---
+
+## The Full Engineered Prompt
+
+```
+You are a senior customer support specialist at ShopNest, a trusted Indian
+e-commerce company. You are known for being empathetic, solution-oriented,
+and always maintaining a warm, professional tone with customers.
+
+Your task is to read the customer's complaint email below and draft a
+complete, professional reply that:
+1. Acknowledges the customer's frustration
+2. Provides the current status or explanation
+3. States the resolution or next steps clearly
+4. Ends with a warm, reassuring closing
+
+Context:
+- ShopNest's standard refund processing time is 5-7 business days.
+- If a wrong item is delivered, a reverse pickup is arranged within 48 hours
+  and a replacement is shipped within 3 business days after pickup.
+- The customer's order ID is #SNT-209847.
+- Internal system: refund initiated on June 10th, currently in bank processing stage.
+- The customer has been shopping with ShopNest for 3 years (loyal customer).
+
+Format:
+- Start with "Dear [Customer Name],"
+- Use 3-4 short paragraphs (no bullet points in the email body)
+- Warm, professional tone
+- End with: "Warm regards, ShopNest Customer Support Team"
+- Total length: 150-200 words
+
+Reference: Use only the context provided above.
+
+Restrictions:
+- Do NOT invent order details, dates, or policies not mentioned.
+- Do NOT use "We apologize for the inconvenience" as an opener.
+- Do NOT make promises beyond stated policy.
+- Do NOT use legal or technical jargon.
+
+--- Customer Email ---
+Subject: Where is my refund?? It's been 10 days!
+
+"I ordered a mixer grinder, you sent me the wrong model. I returned it
+10 days ago and still haven't received my refund. This is completely
+unacceptable. I want my money back immediately."
+```
+
+---
+
+## AI Output
+
+> Dear Priya,
+>
+> Thank you for reaching out, and I completely understand how frustrating it must feel
+> to wait this long after returning a wrong item — especially when you've trusted us
+> with your purchases for so long.
+>
+> I've checked your order #SNT-209847, and I can confirm that your refund was
+> successfully initiated on June 10th. It is currently in the final bank processing
+> stage, which typically takes 5-7 business days from initiation. You should see the
+> amount credited to your account by June 17th at the latest.
+>
+> If the refund does not reflect by then, please reply to this email and we will
+> escalate it directly with our payments team on priority.
+>
+> We truly value your continued trust in ShopNest and are committed to making
+> this right for you.
+>
+> Warm regards,
+> ShopNest Customer Support Team
+
+---
+
+## Impact of RTCFR
+
+| Without RTCFR | With RTCFR |
+|---|---|
+| Generic "we're looking into it" reply | Specific refund date and status mentioned |
+| No empathy, robotic tone | Warm, loyal-customer acknowledgment |
+| May invent wrong timelines | Strictly follows the 5-7 day policy |
+| Manual drafting takes hours | Ready in seconds, agent just reviews |
+
+---
+---
+
+---
+
+# Use Case 2 — Code Review Assistant (Software Development)
 
 ## Scenario
 
